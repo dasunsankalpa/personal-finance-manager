@@ -1,0 +1,340 @@
+/* ═══════════════════════════════════════
+   AUTH PAGE LAYOUT
+═══════════════════════════════════════ */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f0f6ff 0%, #e8f0fe 50%, #f5f0ff 100%);
+  padding: 24px;
+}
+
+[data-theme='dark'] .auth-page {
+  background: linear-gradient(135deg, #0f172a 0%, #1a1f35 50%, #12102a 100%);
+}
+
+.auth-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(70, 130, 180, 0.12), 0 4px 16px rgba(0,0,0,0.06);
+  border: 1px solid rgba(255,255,255,0.8);
+  animation: cardIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.auth-card-wide {
+  max-width: 520px;
+}
+
+[data-theme='dark'] .auth-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════
+   LOGO & HEADINGS
+═══════════════════════════════════════ */
+.auth-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.auth-logo img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.auth-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  text-align: center;
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+
+[data-theme='dark'] .auth-title {
+  color: #f8fafc;
+}
+
+.auth-sub {
+  font-size: 0.875rem;
+  color: #64748b;
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+/* ═══════════════════════════════════════
+   GOOGLE BUTTON
+═══════════════════════════════════════ */
+.google-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.google-btn:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.google-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+[data-theme='dark'] .google-btn {
+  background: #334155;
+  border-color: #475569;
+  color: #f8fafc;
+}
+
+[data-theme='dark'] .google-btn:hover:not(:disabled) {
+  background: #3d4f63;
+}
+
+/* ═══════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════ */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+[data-theme='dark'] .auth-divider::before,
+[data-theme='dark'] .auth-divider::after {
+  background: #334155;
+}
+
+/* ═══════════════════════════════════════
+   FORM FIELDS
+═══════════════════════════════════════ */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.02em;
+}
+
+[data-theme='dark'] .field-group label {
+  color: #94a3b8;
+}
+
+.field-group input,
+.field-group select {
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  color: #000000; /* Change text color to black */
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field-group input:focus,
+.field-group select:focus {
+  border-color: #4682B4;
+  background: #ffffff;
+  color: #000000; /* Keep black text on focus */
+  box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.12);
+}
+
+[data-theme='dark'] .field-group input,
+[data-theme='dark'] .field-group select {
+  background: #0f172a;
+  border-color: #334155;
+  color: #f8fafc; /* Ensure text is visible in dark theme */
+}
+
+[data-theme='dark'] .field-group input:focus,
+[data-theme='dark'] .field-group select:focus {
+  background: #1e293b;
+  border-color: #4682B4;
+  color: #f8fafc; /* Keep light text on focus in dark theme */
+}
+
+.field-group input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+/* ═══════════════════════════════════════
+   FORGOT / ERROR / SWITCH
+═══════════════════════════════════════ */
+.auth-forgot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -8px;
+}
+
+.auth-error {
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+[data-theme='dark'] .auth-error {
+  background: #450a0a;
+  border-color: #7f1d1d;
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 20px 0 0;
+}
+
+/* ═══════════════════════════════════════
+   SUBMIT BUTTON
+═══════════════════════════════════════ */
+.auth-submit {
+  width: 100%;
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #4682B4 0%, #2c5282 100%);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(70, 130, 180, 0.35);
+  margin-top: 4px;
+}
+
+.auth-submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(70, 130, 180, 0.45);
+}
+
+.auth-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ═══════════════════════════════════════
+   LINK BUTTON
+═══════════════════════════════════════ */
+.link-btn {
+  background: none;
+  border: none;
+  color: #4682B4;
+  font-size: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+.link-btn:hover {
+  color: #2c5282;
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════
+   FORGOT PASSWORD SUCCESS
+═══════════════════════════════════════ */
+.reset-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.reset-success-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #4682B4 0%, #2c5282 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(70, 130, 180, 0.35);
+}
+
+/* Modal transparent input placeholder */
+.modal-input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* Fix browser autofill white background on transparent inputs */
+.modal-input:-webkit-autofill,
+.modal-input:-webkit-autofill:hover,
+.modal-input:-webkit-autofill:focus,
+.modal-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.15) inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
+}
